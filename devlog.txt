@@ -1,0 +1,44 @@
+18/12/2022
+
+Le léman express est un ensemble de ligne de train entre la France et la Suisse. L'idée est de faciliter la mobilité des personnes qui transite entre la france et la suisse (aux alentours de Genève jusqu'à Coppet) mais aussi d'améliorer la mobilité pour les suisses se déplaçant vers la France ou vers Coppet.
+
+Le Léman express est issue d'une collaboration entre la SNCF et les CFF. Aussi tout transport à partir de Annemasse dans la zone Française est assurée par des conducteurs de train de la SNCF. De la même manière à partir d'Annemasse vers la suisse se sont des conducteurs suisse qui prenne le relais.
+
+Néanmoins il y a beaucoup de problème observé par les utilisateurs. Des annulations (et de grosses perturbations notamment en période de grève) avec des alternatives peu clair, voir parfois inexistante, des rames de train trop petites par rapport au nombre de passager, des retards, ...
+
+Côté applicatif il existe le site de la SNCF qui permet de savoir les horaires des trains ainsi que les perturbations. Le site de la CFF fait de même. A titre personnel j'utilise l'applications Française et même s'il y a eu des amélioration, les perturbations ne sont pas toujours connue à l'avance pour trouver des moyens alternatif de se déplacer. Il m'est même arrivé que la perturbation se retrouve affichée plusieurs heures après que celle-ci ne soit arrivée ce qui rend l'information périmée et inutilisable. Je n'ai pas beaucoup utilisé l'application Suisse mais il m'est déja arrivé que celle-ci annonce un train supprimé alors que la suppression était indiqué sur l'application Française
+
+Côté des utilisateurs du Léman express, il existe un groupe Facebook (Léman express retards et suppression) qui permet de communiquer aux autres les problèmes observer. A titre personnel, je que c'est une très bonne idée, mais il est difficile de savoir si un retard concernant une des ligne va nous impacter ou non
+
+Pour résumer le problème est qu'il n'y a pas de communication clair et fiable autours de ce transport qui pourtant est très important pour les frontaliers qui souhaite l'utiliser et ceux malgré l'existance de deux applications indiquant les horaires de train. On peut penser entre autre que ces applications généralisé à tout le réseau français ou Suisse, ne sont pas assez spécifique à la particularité de la mobilité des frontaliers
+
+L'idée est donc de créer une application web autours des trains du réseau léman express. L'application permet biensûr de connaître les horaires des trains par ligne et de s'abonner à une ligne en particulier pour en observer les perturbation. En plus des informations reçue de la SNCF sur la perturbation des train, l'application va proposer un système d'alerte directement géré par les utilisateurs. Tout utilisateurs qui constate une perturbation pourra en informer les autres voir pourquoi pas proposer des alternative ou indiquer des alternatives existante (covoiturage, bus, ...) 
+
+18/12/2022
+
+Pour commencer il faut regarder du côté de l'api sncf 
+https://numerique.sncf.com/startup/api/
+
+Afin de pouvoir l'utiliser il faut demander une clé d'activation puis ensuite consulter la documentation
+https://doc.navitia.io/#getting-started
+
+Voici quelques unes des requêtes API qui vont être utile dans la réalisation du projet 
+
+https://api.sncf.com/v1/coverage/sncf => Liste l'ensemble des requête API utile
+
+https://api.sncf.com/v1/coverage/sncf/stop_areas?count=5000&starting_page=0 => Liste les arrêts de trains. count désigne le nombre d'arrêt affiché et starting_page indique le numéro de page (sur le nombre de page dispo en fonction du nombre total d'arrêt)
+
+Cette commande m'a permis de trouver les informations sur les trains passant à l'arrêt de Annemasse
+
+01/01/2023
+
+- Mise en place du projet symfony selon => https://symfony.com/doc/current/setup.html
+- Installation de webpack encore selon => https://symfony.com/doc/current/frontend/encore/installation.html
+- J'ai mis à jour la version de npm selon => https://stackoverflow.com/questions/63312642/how-to-install-node-tar-xz-file-in-linux
+- J'ai créer un controleur src/Controller/DefaultController selon => https://symfony.com/doc/current/the-fast-track/en/6-controller.html
+en utilisant la commande $console make:entity
+- Ajout de react au projet selon => https://symfony.com/doc/current/frontend/encore/reactjs.html
+- Configuration de webpack.config.js
+- Création d'un controleur sous la forme d'un composant React => assets/controllers/DefaultController
+- Ajout et édition du templates par défaut templates/default/index.html.twig
+
